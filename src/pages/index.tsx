@@ -23,14 +23,9 @@ export default function Home({ liff }: ChildComponentProps) {
   const [userImg, setUserImg] = useState("");
   const login = () => {
     liff.login();
-    console.log("idToken:", liff.getDecodedIDToken());
-    if (liff && liff.isLoggedIn()) {
-      const idToken = liff.getDecodedIDToken();
-      setUserName(`こんにちは！${idToken?.name}さん！`);
-      setUserImg(idToken?.picture || "");
-    } else {
-      setUserName("ログインしてください");
-    }
+  };
+  const logout = () => {
+    liff.logout();
   };
   useEffect(() => {
     if (liff && liff.isLoggedIn()) {
@@ -39,12 +34,9 @@ export default function Home({ liff }: ChildComponentProps) {
       setUserImg(idToken?.picture || "");
     } else {
       setUserName("ログインしてください");
+      setUserImg("");
     }
-  }, [login]);
-
-  const logout = () => {
-    liff.logout();
-  };
+  }, [login, logout]);
 
   // テキストをシェアする
   const shareTargetPicler = () => {
