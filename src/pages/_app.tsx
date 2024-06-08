@@ -3,9 +3,11 @@ import type { AppProps } from "next/app";
 import { useState, useEffect } from "react";
 import liff from "@line/liff";
 
+type Liff = typeof liff;
+
 export default function App({ Component, pageProps }: AppProps) {
-  const [liffObject, setLiffObject] = useState(null);
-  const [liffError, setLiffError] = useState(null);
+  const [liffObject, setLiffObject] = useState<Liff | null>(null);
+  const [liffError, setLiffError] = useState<string | null>(null);
 
   // Execute liff.init() when the app is initialized
   useEffect(() => {
@@ -14,7 +16,7 @@ export default function App({ Component, pageProps }: AppProps) {
       .init({ liffId: process.env.LIFF_ID || "" })
       .then(() => {
         console.log("liff.init() done");
-        setLiffObject(liff);
+        setLiffObject(liff); // Update the type of liffObject to match the type of liff
       })
       .catch((error) => {
         console.log(`liff.init() failed: ${error}`);
