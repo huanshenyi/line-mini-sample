@@ -33,6 +33,14 @@ export default function Home({ liff }: ChildComponentProps) {
 
   const login = () => {
     liff.login();
+    console.log("idToken:", liff.getDecodedIDToken());
+    if (liff && liff.isLoggedIn()) {
+      const idToken = liff.getDecodedIDToken();
+      setUserName(`こんにちは！${idToken?.name}さん！`);
+      setUserImg(idToken?.picture || "");
+    } else {
+      setUserName("ログインしてください");
+    }
   };
   const logout = () => {
     liff.logout();
