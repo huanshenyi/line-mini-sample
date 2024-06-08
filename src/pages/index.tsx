@@ -274,55 +274,21 @@ export default function Home({ liff }: ChildComponentProps) {
       <div className="home">
         <h1 className="home__title">
           Welcome to <br />
-          <a
-            className="home__title__link"
-            href="https://developers.line.biz/en/docs/liff/overview/"
-          >
-            LIFF Starter!
+          <a className="home__title__link" href="#">
+            Fitlane!
           </a>
         </h1>
+        <img src="main.png" alt="log" className="h-52 items-center inline" />
         <div className="home__badges">
           <span className="home__badges__badge badge--primary">
-            LIFF Starter
+            Fitlane Starter
           </span>
           <span className="home__badges__badge badge--secondary">nextjs</span>
           <span className="home__badges__badge badge--primary">
             {packageJson.version}
           </span>
-          <a
-            href="https://github.com/line/line-liff-v2-starter"
-            target="_blank"
-            rel="noreferrer"
-            className="home__badges__badge badge--secondary"
-          >
-            GitHub
-          </a>
         </div>
         <div className="home__buttons">
-          <a
-            href="https://developers.line.biz/en/docs/liff/developing-liff-apps/"
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--primary"
-          >
-            LIFF Documentation
-          </a>
-          <a
-            href="https://liff-playground.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--tertiary"
-          >
-            LIFF Playground
-          </a>
-          <a
-            href="https://developers.line.biz/console/"
-            target="_blank"
-            rel="noreferrer"
-            className="home__buttons__button button--secondary"
-          >
-            LINE Developers Console
-          </a>
           <hr className="w-full" />
           <div>
             <img id="profile_img" width="100px" src={userImg} />
